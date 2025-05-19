@@ -1,7 +1,35 @@
-fetch("provincias.json").then(response=> response.json()).then
-(ArrayComunidades=> {
-    ArrayComunidades.ComunidadesAutonomas.forEach(element => {
-        let regiones = document.getElementById("regiones");
-        regiones.innerHTML += `<option value="${element.id}">${element.nombre}</option>`;
+fetch("provincias.json")
+    .then(response => response.json())
+    .then(data => {
+        const comunidades = data.ComunidadesAutonomas;
+        const regiones = document.getElementById("regiones");
+
+        // Llenar el select de regiones
+        comunidades.forEach(element => {
+            regiones.innerHTML += `<option value="${element.nombre}">${element.nombre}</option>`;
+        });
+
+        // Escuchar cambios en el select de regiones
+        regiones.addEventListener("change", () => {
+            const provinciasSelect = document.getElementById("provincias");
+            const opcion = regiones.value;
+
+            // Limpiar las opciones previas de provincias
+            provinciasSelect.innerHTML = "";
+
+            // Buscar la comunidad seleccionada y llenar el select de provincias
+            const comunidadSeleccionada = comunidades.find(c => c.nombre === opcion);
+            if (comunidadSeleccionada) {
+                comunidadSeleccionada.provincias.forEach(provincia => {
+                    const option = document.createElement("option");
+                    option.innerHTML = provincia.nombre;
+                    provinciasSelect.appendChild(option);
+                });
+            }
+        });
+    })
+    .catch(error => {
+        console.error("Error al cargar el archivo provincias.json:", error);
     });
-});
+
+    

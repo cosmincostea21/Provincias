@@ -4,12 +4,37 @@
         {
             "id" : "1",
             "nombre" : "Castilla y León",
-            "habitantes" : "500.000"
+            "habitantes" : "500.000",
+            "provincias" : [
+                {
+                    "id" : "1",
+                    "nombre" : "Burgos",
+                    "habitantes": "300.000"
+                },
+                {
+                    "id" : "2",
+                    "nombre" : "León",
+                    "habitantes": "200.000"
+                }
+            ]
+            
         },
         {
             "id" : "2",
             "nombre" : "Valencia",
-            "habitantes": "800.000"
+            "habitantes": "800.000",
+            "provincias" : [
+                {
+                    "id" : "1",
+                    "nombre" : "Valencia",
+                    "habitantes": "600.000"
+                },
+                {
+                    "id" : "2",
+                    "nombre" : "Alicante",
+                    "habitantes": "200.000"
+                }
+            ]
         }
     ]
 }
