@@ -18,7 +18,8 @@ fetch("provincias.json")
             provinciasSelect.innerHTML = "";
 
             // Buscar la comunidad seleccionada y llenar el select de provincias
-            const comunidadSeleccionada = comunidades.find(c => c.nombre === opcion);
+            const comunidadSeleccionada = comunidades.find(comunidad => comunidad.nombre === opcion); 
+            // Devuelve un booleano (TRUE) si el valor se encuentra en el array
             if (comunidadSeleccionada) {
                 comunidadSeleccionada.provincias.forEach(provincia => {
                     const option = document.createElement("option");
@@ -28,8 +29,3 @@ fetch("provincias.json")
             }
         });
     })
-    .catch(error => {
-        console.error("Error al cargar el archivo provincias.json:", error);
-    });
-
-    
