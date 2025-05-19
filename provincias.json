@@ -1,9 +1,9 @@
 {
-    "provincias" : 
+    "ComunidadesAutonomas" : 
     [
         {
             "id" : "1",
-            "nombre" : "Alicante",
+            "nombre" : "Castilla y León",
             "habitantes" : "500.000"
         },
         {
